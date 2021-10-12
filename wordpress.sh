@@ -3,7 +3,7 @@ sudo -i
 apt install nano
 nano wordpress.sh
 
-
+###################################################
 
 
 #/bin/sh
@@ -33,7 +33,10 @@ systemctl enable mysql
 systemctl start mysql
 
 /usr/bin/mysql -e "USE mysql;"
-/usr/bin/mysql -e "UPDATE user SET Password=PASSWORD($mysqlrootpass) WHERE user='root';"
+##/usr/bin/mysql -e "UPDATE user SET Password=PASSWORD($mysqlrootpass) WHERE user='root';"
+
+SET PASSWORD FOR 'root'@'localhost' = 'PASSWORD($mysqlrootpass)';
+
 /usr/bin/mysql -e "FLUSH PRIVILEGES;"
 touch /root/.my.cnf
 chmod 640 /root/.my.cnf

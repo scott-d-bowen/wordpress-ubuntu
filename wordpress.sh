@@ -35,7 +35,7 @@ systemctl start mysql
 /usr/bin/mysql -e "USE mysql;"
 ##/usr/bin/mysql -e "UPDATE user SET Password=PASSWORD($mysqlrootpass) WHERE user='root';"
 
-SET PASSWORD FOR 'root'@'localhost' = 'PASSWORD($mysqlrootpass)';
+/usr/bin/mysql -e SET PASSWORD FOR 'root'@'localhost' = 'PASSWORD($mysqlrootpass)';
 
 /usr/bin/mysql -e "FLUSH PRIVILEGES;"
 touch /root/.my.cnf
